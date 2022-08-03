@@ -67,10 +67,6 @@ var Protocoach = [{
 
 
 
-    
-    
-
-for (var i = 0; i < Protocoach.length; i++) {
-    // arr[i] is each item of the array
+    for (var i = 0; i < Protocoach.length; i++) {
     console.log(Protocoach[i]);
 }
