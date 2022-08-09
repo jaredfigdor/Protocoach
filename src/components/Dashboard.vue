@@ -2,32 +2,35 @@
 
 <div id ="dashboard">
 
-<ul class="collection with-header">
-    <li class="collection-header">
-        <h4>Employees</h4>
-    </li>
-    <li v-for="employee in employees" v-bind:key="employee.id" class="collection-item">
-       <div class="chip">{{employee.dept}}</div>{{employee.employee_id}}:{{employee.name}}
-
-        <router-link class ="secondary-content"
-           
-           v-bind:to="{name: 'view-employee', params: {employee_id: employee.employee_id}}">
-            <i class="fa fa-eye"></i>
-            </router-link>  
+    <ul class="collection with-header">
+        <li class="collection-header">
+           <h5>Volume 1 - Administrative Policies</h5> 
+        </li>
+        <li v-for="volume in volumes" v-bind:key="volume.id" class="collection-item">
+        <div class="chip">{{volume.section_id}}</div>
         
-    </li>
-</ul>
+         {{volume.section}} : {{volume.title}}
+
+        <router-link class="secondary-content" 
+        
+        v-bind:to="{name: 'view-sections', params: {section_id: volume.section_id}}">
+        <i class="fa fa-eye"></i>
+        
+        </router-link>
+        
+        </li>
+    </ul>
+
 
 
 <div class="fixed-action-btn">
     <router-link to="/new" class="btn-floating btn-large red">
-
-            <i class="fa fa-plus"></i>
-
+        <i class="fa fa-plus"></i>
     </router-link>
 </div>
-
+    
 </div>
+
 
 </template>
 
@@ -38,21 +41,24 @@ export default {
 name: 'dashboard',
 data () {
     return {
-      employees: []
+     volumes: []
     }
 },
-created(){
-    db.collection('employees').orderBy('dept').get().then(querySnapshot => {
+created () {
+    db.collection('volumes').orderBy('section_id').get().then(querySnapshot => {
         querySnapshot.forEach(doc => {
-     
+            console.log(doc.data())
             const data = {
                 'id': doc.id,
-                'employee_id': doc.data().employee_id,
+                'volumes': doc.data().volume,
                 'name': doc.data().name,
-                'dept': doc.data().dept,
-                'position': doc.data().position
+                'section': doc.data().section,
+                'islocked': doc.data().islocked,
+                'section_id': doc.data().section_id,
+                'title' : doc.data().title
+
             }
-            this.employees.push(data)
+            this.volumes.push(data)
         })
     })
 }

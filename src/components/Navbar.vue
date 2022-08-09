@@ -6,7 +6,7 @@
     <div class="container">
         <div class="title">
         <router-link to="/" class="brand-logo">
-            Employee Manager
+            ProtoCoach
         </router-link>
         </div>
     </div>
