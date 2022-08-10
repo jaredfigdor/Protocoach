@@ -22,15 +22,16 @@ export default new Router({
       component: NewSection
     },
     {
-      path: '/edit/:section_id',
-      name: 'edit-sections',
-      component: EditSections
-    },
-    {
       path: '/:section_id',
       name: 'view-sections',
       component: ViewSections
+    },
+    {
+      path: '/edit/:section_id',
+      name: 'edit-sections',
+      component: EditSections
     }
+    
 
   ]
 })

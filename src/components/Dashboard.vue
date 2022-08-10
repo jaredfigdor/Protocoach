@@ -55,7 +55,9 @@ created () {
                 'section': doc.data().section,
                 'islocked': doc.data().islocked,
                 'section_id': doc.data().section_id,
-                'title' : doc.data().title
+                'title' : doc.data().title,
+                'policy' : doc.data().policy,
+                'modification' : doc.data().modification
 
             }
             this.volumes.push(data)
@@ -67,3 +69,18 @@ created () {
 
 
 </script>
+
+<style>
+
+
+li.collection-header {
+
+text-align: center;    
+    width: 600px;
+}
+
+
+
+
+
+</style>

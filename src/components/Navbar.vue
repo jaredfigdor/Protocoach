@@ -17,10 +17,10 @@
 </template>
 
 <style>
-.title{
-   text-align: center;
-   padding-right: 250px;
-   margin: auto;
+.title {
+  
+   display: flex;
+   justify-content: center;
 }
 
 </style>
